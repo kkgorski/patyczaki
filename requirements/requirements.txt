@@ -3,4 +3,4 @@ REQUIREMENTS:
 21.10.2019 - Iteration 0
 + Working html page
 + Empty canvas element with one 'patyczak'
-- Adding backend server, which will receive a message on user opening website
++ Adding backend server, which will receive a message on user opening website
