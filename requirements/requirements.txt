@@ -4,3 +4,18 @@ REQUIREMENTS:
 + Working html page
 + Empty canvas element with one 'patyczak'
 + Adding backend server, which will receive a message on user opening website
+
+=============================================================================================================
+24.10.2019 - Iteration 1 - PLAYER MOVEMENT
+
+COMMENTS:
+Requirements from now on will be divided into front/back end
+
+FRONT:
+- Given user input (for now arrows, but consider possibility of extending to touch screen)
+  send messages #update#name#od#message to server with indicated direction of movement
+- Render player, based on server response
+
+BACK:
+- Process #update#name#od#message message, and respond with #another#message#name#update which will indicate
+  current position of player. Player position will be limited by canvas dimensions.
