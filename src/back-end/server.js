@@ -18,7 +18,16 @@ console.log(`Server listening on port ${port}`);
 // Setup socket.io
 const io = socketio(server);
 
-// Listen for socket.io connections
-io.on('connection', socket => {
-  console.log('Player connected!', socket.id);
+const connectedPromise = new Promise(resolve => {
+  io.on('connection', socket => {
+    console.log('Player connected!', socket.id);
+    resolve(socket);
+  });
+});
+
+connectedPromise.then((socket) => {
+  socket.on(Const.MSG.CTS_HELLO, () => {
+    console.log('received hello!! Emiting STC.Welcome');
+    socket.emit(Const.MSG.STC_WELCOME);
+  });
 });
