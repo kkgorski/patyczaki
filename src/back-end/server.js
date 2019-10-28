@@ -30,4 +30,7 @@ connectedPromise.then((socket) => {
     console.log('received hello!! Emiting STC.Welcome');
     socket.emit(Const.MSG.STC_WELCOME);
   });
+  socket.on(Const.MSG.CTS_KEYDOWN, (keyboardEvent) => {
+    console.log('received kepress!!', keyboardEvent);
+  });
 });

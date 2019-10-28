@@ -11,10 +11,15 @@ const connectedPromise = new Promise(resolve => {
   });
 });
 
-connectedPromise.then(() => {
+export const connect = () => { connectedPromise.then(() => {
   socket.on(Const.MSG.STC_WELCOME, () => {
     console.log('Received welcome from server!');
   });
   socket.emit(Const.MSG.CTS_HELLO);
 });
+};
 
+export const emit = (msg, msgEvent) => {
+  console.log('Sending to server', msgEvent);
+  socket.emit(msg, msgEvent);
+};

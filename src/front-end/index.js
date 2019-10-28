@@ -1,4 +1,5 @@
 import {connect} from './client.js';
+import {onKeydown} from './ui.js';
 
 var canvas = document.getElementById("game-canvas");
 canvas.width = 800;
@@ -19,6 +20,14 @@ img.onerror = (errorMsg, url, lineNumber, column, errorObj) => {
   console.log(errorMsg);
   console.log(url)
   };
+
 img.src = '/assets/patyczak.png';
+Promise.all(
+  [connect()],
+).then(() => {
+  window.addEventListener('keydown', onKeydown);
+}).catch(console.error);
+
 console.log("Finished script");
+
 
