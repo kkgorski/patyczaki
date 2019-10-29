@@ -25,12 +25,27 @@ const connectedPromise = new Promise(resolve => {
   });
 });
 
+let position = {
+  x: 0,
+  y: 0
+}
+
 connectedPromise.then((socket) => {
-  socket.on(Const.MSG.CTS_HELLO, () => {
-    console.log('received hello!! Emiting STC.Welcome');
-    socket.emit(Const.MSG.STC_WELCOME);
-  });
-  socket.on(Const.MSG.CTS_KEYDOWN, (keyboardEvent) => {
-    console.log('received kepress!!', keyboardEvent);
+  socket.on(Const.MSG.CTS_KEYDOWN, (key) => {
+    switch(key) {
+      case "ArrowLeft":
+        position.x -= 5;
+        break;
+      case "ArrowRight":
+        position.x += 5;
+        break;
+      case "ArrowUp":
+        position.y -= 5;
+        break;
+      case "ArrowDown":
+        position.y += 5;
+        break;
+    }
+    socket.emit(Const.MSG.STC_POSITION, position);
   });
 });

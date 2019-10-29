@@ -12,10 +12,12 @@ COMMENTS:
 Requirements from now on will be divided into front/back end
 
 FRONT:
-- Given user input (for now arrows, but consider possibility of extending to touch screen)
-  send messages #update#name#od#message to server with indicated direction of movement
-- Render player, based on server response
++ Given user input (for now arrows, but consider possibility of extending to touch screen)
+  send messages CTS_KEYDOWN to server with indicated direction of movement
++ Render player, based on server response
 
 BACK:
-- Process #update#name#od#message message, and respond with #another#message#name#update which will indicate
-  current position of player. Player position will be limited by canvas dimensions.
++ Process CTS_KEYDOWN message, and respond with STC_POSITION which will indicate
+  current position of player.
+- Player position will be limited by canvas dimensions.
+- Fix bug which requires server restart on webpage refresh.

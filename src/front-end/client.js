@@ -1,4 +1,5 @@
 import io from 'socket.io-client'
+import {setItemPosition} from './item.js';
 
 const Const = require('../common/constants');
 
@@ -12,10 +13,10 @@ const connectedPromise = new Promise(resolve => {
 });
 
 export const connect = () => { connectedPromise.then(() => {
-  socket.on(Const.MSG.STC_WELCOME, () => {
-    console.log('Received welcome from server!');
+  socket.on(Const.MSG.STC_POSITION, (position) => {
+    console.log('Received position from server!', position);
+    setItemPosition(position);
   });
-  socket.emit(Const.MSG.CTS_HELLO);
 });
 };
 
