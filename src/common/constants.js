@@ -1,4 +1,10 @@
 module.exports = Object.freeze({
+  MAX_HEIGHT: 800,
+  MAX_WIDTH: 800,
+
+  PLAYER_HEIGHT: 192,
+  PLAYER_WIDTH: 158,
+
   MSG:
   {
     CTS_KEYDOWN: 'keydown',

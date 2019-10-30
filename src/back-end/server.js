@@ -30,6 +30,10 @@ let position = {
   y: 0
 }
 
+let clamp = (num, min, max) => {
+  return num <= min ? min : num >= max ? max : num;
+}
+
 connectedPromise.then((socket) => {
   socket.on(Const.MSG.CTS_KEYDOWN, (key) => {
     switch(key) {
@@ -46,6 +50,8 @@ connectedPromise.then((socket) => {
         position.y += 5;
         break;
     }
+    position.x = clamp(position.x, 0, Const.MAX_WIDTH - Const.PLAYER_WIDTH);
+    position.y = clamp(position.y, 0, Const.MAX_HEIGHT - Const.PLAYER_WIDTH);
     socket.emit(Const.MSG.STC_POSITION, position);
   });
 });

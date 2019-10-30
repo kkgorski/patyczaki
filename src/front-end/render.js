@@ -1,13 +1,14 @@
 import {getItem} from './item.js';
+const Const = require('../common/constants');
 
 let canvas = document.getElementById("game-canvas");
-canvas.width = 800;
-canvas.height = 800;
+canvas.width = Const.MAX_WIDTH;
+canvas.height = Const.MAX_HEIGHT;
 let context = canvas.getContext("2d");
 
 function render() {
   context.fillStyle = "#CDCDCD";
-  context.fillRect(0, 0, 500, 500);
+  context.fillRect(0, 0, Const.MAX_WIDTH, Const.MAX_HEIGHT);
   let item = getItem();
   context.drawImage(item.img, item.x, item.y);
 }
