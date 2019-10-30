@@ -20,4 +20,4 @@ BACK:
 + Process CTS_KEYDOWN message, and respond with STC_POSITION which will indicate
   current position of player.
 + Player position will be limited by canvas dimensions.
-- Fix bug which requires server restart on webpage refresh.
++ Fix bug which requires server restart on webpage refresh.

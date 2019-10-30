@@ -18,11 +18,9 @@ console.log(`Server listening on port ${port}`);
 // Setup socket.io
 const io = socketio(server);
 
-const connectedPromise = new Promise(resolve => {
-  io.on('connection', socket => {
-    console.log('Player connected!', socket.id);
-    resolve(socket);
-  });
+io.on('connection', socket => {
+  console.log('Player connected!', socket.id);
+  socket.on(Const.MSG.CTS_KEYDOWN, (key) => {emitPositionBasedOnKeydown(socket, key)});
 });
 
 let position = {
@@ -34,24 +32,22 @@ let clamp = (num, min, max) => {
   return num <= min ? min : num >= max ? max : num;
 }
 
-connectedPromise.then((socket) => {
-  socket.on(Const.MSG.CTS_KEYDOWN, (key) => {
-    switch(key) {
-      case "ArrowLeft":
-        position.x -= 5;
-        break;
-      case "ArrowRight":
-        position.x += 5;
-        break;
-      case "ArrowUp":
-        position.y -= 5;
-        break;
-      case "ArrowDown":
-        position.y += 5;
-        break;
-    }
-    position.x = clamp(position.x, 0, Const.MAX_WIDTH - Const.PLAYER_WIDTH);
-    position.y = clamp(position.y, 0, Const.MAX_HEIGHT - Const.PLAYER_WIDTH);
-    socket.emit(Const.MSG.STC_POSITION, position);
-  });
-});
+const emitPositionBasedOnKeydown = (socket, key) => {
+  switch(key) {
+    case "ArrowLeft":
+      position.x -= 5;
+      break;
+    case "ArrowRight":
+      position.x += 5;
+      break;
+    case "ArrowUp":
+      position.y -= 5;
+      break;
+    case "ArrowDown":
+      position.y += 5;
+      break;
+  }
+  position.x = clamp(position.x, 0, Const.MAX_WIDTH - Const.PLAYER_WIDTH);
+  position.y = clamp(position.y, 0, Const.MAX_HEIGHT - Const.PLAYER_WIDTH);
+  socket.emit(Const.MSG.STC_POSITION, position);
+};
