@@ -18,18 +18,30 @@ console.log(`Server listening on port ${port}`);
 // Setup socket.io
 const io = socketio(server);
 
-io.on('connection', socket => {
-  console.log('Player connected!', socket.id);
-  socket.on(Const.MSG.CTS_KEYDOWN, (key) => {emitPositionBasedOnKeydown(socket, key)});
-});
-
 let position = {
   x: 0,
   y: 0
 }
 
-let clamp = (num, min, max) => {
-  return num <= min ? min : num >= max ? max : num;
+io.on('connection', socket => {
+  position.x = Math.floor(Math.random() * (Const.MAX_WIDTH + 1));
+  position.y = Math.floor(Math.random() * (Const.MAX_HEIGHT + 1));
+  position = clamp(position);
+  socket.emit(Const.MSG.STC_POSITION, position);
+
+  console.log('Player connected! Emitting initial position! ', socket.id, position);
+
+  socket.on(Const.MSG.CTS_KEYDOWN, (key) => {emitPositionBasedOnKeydown(socket, key)});
+});
+
+const clamp = (position) => {
+  const _clamp = (num, min, max) => {
+    return num <= min ? min : num >= max ? max : num;
+  }
+
+  position.x = _clamp(position.x, 0, Const.MAX_WIDTH - Const.PLAYER_WIDTH);
+  position.y = _clamp(position.y, 0, Const.MAX_HEIGHT - Const.PLAYER_WIDTH);
+  return position;
 }
 
 const emitPositionBasedOnKeydown = (socket, key) => {
@@ -47,7 +59,6 @@ const emitPositionBasedOnKeydown = (socket, key) => {
       position.y += 5;
       break;
   }
-  position.x = clamp(position.x, 0, Const.MAX_WIDTH - Const.PLAYER_WIDTH);
-  position.y = clamp(position.y, 0, Const.MAX_HEIGHT - Const.PLAYER_WIDTH);
+  position = clamp(position);
   socket.emit(Const.MSG.STC_POSITION, position);
 };

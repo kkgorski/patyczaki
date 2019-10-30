@@ -31,5 +31,5 @@ FRONT:
 - Players should differ with color
 
 BACK:
-- Players should start in random position.
++ Players should start in random position.
 

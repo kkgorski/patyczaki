@@ -6,11 +6,16 @@ class Item {
     this.x = x;
     this.y = y;
     this.img = img;
+    this.direction = 0; //degrees from y axis, clockwise
   }
-  setPosition(x,y)
+  setPosition(position)
   {
-    this.x = x;
-    this.y = y;
+    this.x = position.x;
+    this.y = position.y;
+  }
+  setDirection(direction)
+  {
+    this.direction = 0; //degrees from y axis, clockwise
   }
 }
 
@@ -21,8 +26,13 @@ export const makeNewItem = () => {
 }
 
 export const setItemPosition = (position) => {
-  item.setPosition(position.x,position.y);
+  item.setPosition(position);
 }
+
+export const setItemDirection = (direction) => {
+  item.setDirection(direction);
+}
+
 export const getItem = () => {
   return item;
 };
