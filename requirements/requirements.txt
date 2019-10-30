@@ -21,3 +21,15 @@ BACK:
   current position of player.
 + Player position will be limited by canvas dimensions.
 + Fix bug which requires server restart on webpage refresh.
+
+=============================================================================================================
+30.10.2019 - Iteration 2 - LOCAL ONE TAB MULTIPLAYER
+
+FRONT:
+- Add start menu which will allow to choose amount of players in current tab [1 or 2].
+- Add in that start menu key mapping should be shown, with sane default values [arrows, wsad].
+- Players should differ with color
+
+BACK:
+- Players should start in random position.
+
