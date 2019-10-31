@@ -13,6 +13,10 @@ class Item {
     this.x = position.x;
     this.y = position.y;
   }
+  setImg(img)
+  {
+    this.img = img;
+  }
   setDirection(direction)
   {
     this.direction = 0; //degrees from y axis, clockwise
@@ -21,8 +25,9 @@ class Item {
 
 let item = new Item(0,0, null);
 
-export const makeNewItem = () => {
-  item = new Item(0, 0, getAsset('patyczak.png'));
+export const addPlayer = () => {
+  item.setImg(getAsset('patyczak.png'));
+  console.log('added Player!');
 }
 
 export const setItemPosition = (position) => {

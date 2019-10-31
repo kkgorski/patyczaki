@@ -2,8 +2,6 @@ import {getItem} from './item.js';
 const Const = require('../common/constants');
 
 let canvas = document.getElementById("game-canvas");
-canvas.width = Const.MAX_WIDTH;
-canvas.height = Const.MAX_HEIGHT;
 let context = canvas.getContext("2d");
 
 function render() {
@@ -14,5 +12,8 @@ function render() {
 }
 
 export function startRendering(item) {
+  canvas.width = Const.MAX_WIDTH;
+  canvas.height = Const.MAX_HEIGHT;
   let renderInterval = setInterval(render, 1000 / 6);
+  console.log('start rendering finished!')
 }
