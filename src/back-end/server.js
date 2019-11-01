@@ -40,7 +40,7 @@ const clamp = (position) => {
   }
 
   position.x = _clamp(position.x, 0, Const.MAX_WIDTH - Const.PLAYER_WIDTH);
-  position.y = _clamp(position.y, 0, Const.MAX_HEIGHT - Const.PLAYER_WIDTH);
+  position.y = _clamp(position.y, 0, Const.MAX_HEIGHT - Const.PLAYER_HEIGHT);
   return position;
 }
 

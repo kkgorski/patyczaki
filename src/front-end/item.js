@@ -6,7 +6,6 @@ class Item {
     this.x = x;
     this.y = y;
     this.img = img;
-    this.direction = 0; //degrees from y axis, clockwise
   }
   setPosition(position)
   {
@@ -16,10 +15,6 @@ class Item {
   setImg(img)
   {
     this.img = img;
-  }
-  setDirection(direction)
-  {
-    this.direction = 0; //degrees from y axis, clockwise
   }
 }
 

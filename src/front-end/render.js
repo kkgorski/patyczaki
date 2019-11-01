@@ -11,9 +11,9 @@ function render() {
   context.drawImage(item.img, item.x, item.y);
 }
 
-export function startRendering(item) {
+export function startRendering() {
   canvas.width = Const.MAX_WIDTH;
   canvas.height = Const.MAX_HEIGHT;
-  let renderInterval = setInterval(render, 1000 / 6);
+  setInterval(render, 1000 / 6);
   console.log('start rendering finished!')
 }
