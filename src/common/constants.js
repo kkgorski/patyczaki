@@ -7,6 +7,7 @@ module.exports = Object.freeze({
 
   MSG:
   {
+    CTS_GAME_SETUP: 'game-setup',
     CTS_KEYDOWN: 'keydown',
     STC_POSITION: 'position',
   },

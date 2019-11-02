@@ -3,6 +3,8 @@ import {onKeydown} from './ui.js';
 import {downloadAssets} from './assets.js';
 import {addPlayer} from './item.js';
 import {startRendering} from './render.js';
+import {emit} from './client.js';
+const Const = require('../common/constants');
 import styles from './app.module';
 
 const menu = document.getElementById('menu');
@@ -16,6 +18,7 @@ Promise.all([
 }).catch(console.error);
 
 const makeOnePlayerGame = () => {
+  emit(Const.MSG.CTS_GAME_SETUP);
   window.addEventListener('keydown', onKeydown);
   addPlayer();
   startRendering();
