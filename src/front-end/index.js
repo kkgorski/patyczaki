@@ -5,23 +5,31 @@ import {addPlayer} from './item.js';
 import {startRendering} from './render.js';
 import {emit} from './client.js';
 const Const = require('../common/constants');
-import styles from './app.module';
+//import styles from './app.module';
 
-const menu = document.getElementById('menu');
+const gameMenu = document.getElementById('game-menu');
+const playerMenu = document.getElementById('player-menu');
+const newGameButton= document.getElementById('new-game-button');
 const onePlayerButton = document.getElementById('one-player-button');
 
 Promise.all([
   downloadAssets(),
   connect(),
 ]).then(() => {
+  newGameButton.onclick = setupNewGame;
   onePlayerButton.onclick = makeOnePlayerGame;
 }).catch(console.error);
 
-const makeOnePlayerGame = () => {
+const setupNewGame = () => {
   emit(Const.MSG.CTS_GAME_SETUP);
+  gameMenu.classList.add('hidden');
+  playerMenu.classList.remove('hidden');
+}
+
+const makeOnePlayerGame = () => {
   window.addEventListener('keydown', onKeydown);
   addPlayer();
   startRendering();
-  menu.classList.add(styles.hidden);
+  playerMenu.classList.add('hidden');
 }
 

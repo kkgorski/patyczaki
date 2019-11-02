@@ -1,12 +1,23 @@
 <!doctype html>
 <html>
   <head>
+    <style>
+      .hidden {
+	display: none !important;
+      }
+    </style>
     <meta charset="utf-8"/>
     <title>Patyczaki</title>
   </head>
   <body>
     <canvas id="game-canvas"></canvas>
-    <div id="menu" class="hidden">
+    <div id="game-menu">
+      <h1> Patyczaki </h1>
+      <p> New game</p>
+      <button id="new-game-button">NEW GAME</button>
+      <button id="join-game-button">JOIN GAME</button>
+    </div>
+    <div id="player-menu" class="hidden">
       <h1> Patyczaki </h1>
       <p> Wybierz liczbę graczy </p>
       <button id="one-player-button">ONE PLAYER</button>
