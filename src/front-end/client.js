@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import {setItemPosition} from './item.js';
+import {updateItems} from './render.js';
 
 const Const = require('../common/constants');
 
@@ -13,9 +13,9 @@ const connectedPromise = new Promise(resolve => {
 });
 
 export const connect = () => { connectedPromise.then(() => {
-  socket.on(Const.MSG.STC_POSITION, (position) => {
-    console.log('Received position from server!', position);
-    setItemPosition(position);
+  socket.on(Const.MSG.STC_GAME_STATE, (gameState) => {
+    console.log('Received game state from server!', gameState);
+    updateItems(gameState);
   });
 });
 };
