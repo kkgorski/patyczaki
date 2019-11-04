@@ -29,7 +29,7 @@ FRONT:
 + Add start menu.
 + Menu allow to choose amount of players in current tab [1 or 2].
 + Add in that start menu key mapping should be shown, with sane default values [arrows, wsad].
-- Players should differ with color
++ Players' name should be displayed
 
 BACK:
 + Players should start in random position.
