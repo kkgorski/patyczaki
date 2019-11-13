@@ -10,12 +10,13 @@ module.exports = Object.freeze({
     PLAYER: 'player',
   },
 
-  DIR:
+  ACTION:
   {
     LEFT:  'left',
     RIGHT: 'right',
     UP:    'up',
     DOWN:  'down',
+    FIRE:  'fire',
   },
 
   MSG:

@@ -37,17 +37,17 @@ class Game {
 
   updateAfterKeydown(playerKeydown) {
   const playerState = this.state.find((item) => (item.name == playerKeydown.name));
-    switch(playerKeydown.direction) {
-      case Const.DIR.LEFT:
+    switch(playerKeydown.action) {
+      case Const.ACTION.LEFT:
         playerState.x -= 5;
         break;
-      case Const.DIR.RIGHT:
+      case Const.ACTION.RIGHT:
         playerState.x += 5;
         break;
-      case Const.DIR.UP:
+      case Const.ACTION.UP:
         playerState.y -= 5;
         break;
-      case Const.DIR.DOWN:
+      case Const.ACTION.DOWN:
         playerState.y += 5;
         break;
     }
