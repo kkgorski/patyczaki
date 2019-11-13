@@ -36,15 +36,23 @@ BACK:
 + Players are able to move.
 
 =============================================================================================================
-04.11.2019 - Iteration 3 - BULLETS
+04.11.2019 - Iteration 3 - BULLETS & PLAYER FACING LAST MOVEMENT DIRECTION
+
+*EDIT 13.11.2019
+COMMENTS:
+For the sake of ease of debugging, PLAYER FACING LAST MOVEMENT DIRECTION was added
+
+
 
 FRONT:
 + Add simple bullet asset downloading
 + Add fire keydown to key mapping
 + On fire keydown CTS_PLAYER_FIRE {name: player.name, action: fire} msg should be emitted.
++ patyczak.png should be split into two different assets, one facing left and the other facing right.
 
 BACK:
 + Add simple bullet asset
+- Player is using patyczakLeft or patyczakRight according to its last movement.
 - On CTS_PLAYER_FIRE bullet should start to be rendered.
 - Bullet should propagate with constant velocity in the same direction as player's last movement.
 
