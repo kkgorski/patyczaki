@@ -39,13 +39,13 @@ BACK:
 04.11.2019 - Iteration 3 - BULLETS
 
 FRONT:
-- Add simple bullet asset downloading
++ Add simple bullet asset downloading
 - Add fire keydown to key mapping
 - On fire keydown CTS_PLAYER_FIRE {name: player.name, dir: left} msg should be emitted. Direction of the bullet
   is the same as player's last movement direction.
 
 BACK:
-- Add simple bullet asset
++ Add simple bullet asset
 - On CTS_PLAYER_FIRE bullet should start to be rendered.
 - Bullet should propagate with constant velocity in direction specified by CTS_PLAYER_FIRE.
 
