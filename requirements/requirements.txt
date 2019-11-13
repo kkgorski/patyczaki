@@ -52,7 +52,7 @@ FRONT:
 
 BACK:
 + Add simple bullet asset
-- Player is using patyczakLeft or patyczakRight according to its last movement.
++ Render is using patyczakLeft or patyczakRight according to players last movement.
 - On CTS_PLAYER_FIRE bullet should start to be rendered.
 - Bullet should propagate with constant velocity in the same direction as player's last movement.
 

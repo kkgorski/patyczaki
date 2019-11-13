@@ -1,7 +1,8 @@
 const assets = {};
 
 const ASSET_NAMES = [
-  'patyczak.png',
+  'patyczakLeft.png',
+  'patyczakRight.png',
   'bullet.png',
 ]
 

@@ -10,7 +10,7 @@ export const updateItems = (gameState) => {
     return {
       x: gameStateItem.x,
       y: gameStateItem.y,
-      img: getAsset('patyczak.png'),
+      img: (gameStateItem.dir === Const.DIR.LEFT) ? getAsset('patyczakLeft.png') : getAsset('patyczakRight.png'),
       type: gameStateItem.type,
       name: gameStateItem.name
     };
@@ -26,7 +26,7 @@ function render() {
       context.fillStyle = "red";
       context.font = "14px Arial";
       context.textBaseline = "middle";
-      context.fillText(renderable.name, renderable.x + (Const.PLAYER_WIDTH / 2), renderable.y + 14);
+      context.fillText(renderable.name, renderable.x + (Const.PLAYER_WIDTH / 4), renderable.y + 10);
     }
   }
   );

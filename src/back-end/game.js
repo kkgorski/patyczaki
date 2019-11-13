@@ -28,7 +28,8 @@ class Game {
         x: x,
         y: y,
         type: Const.TYPE.PLAYER,
-        name: player.name
+        name: player.name,
+        dir: Math.random() < 0.5 ? 'left' : 'right'
       };
       this.state.push(item);
     });
@@ -40,9 +41,11 @@ class Game {
     switch(playerKeydown.action) {
       case Const.ACTION.LEFT:
         playerState.x -= 5;
+        playerState.dir = 'left';
         break;
       case Const.ACTION.RIGHT:
         playerState.x += 5;
+        playerState.dir = 'right';
         break;
       case Const.ACTION.UP:
         playerState.y -= 5;

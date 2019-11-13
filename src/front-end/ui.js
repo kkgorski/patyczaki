@@ -15,11 +15,11 @@ export const setupPlayerMapping = (players) =>{
 
 export const setupDefaultKeyMappingForPlayer1 = () => {
   const player1KeyMapping = playerKeyMappings.find((playerMapping) => {return playerMapping.name == 'kuba';});
-  player1KeyMapping.keyMapping.set("ArrowLeft", Const.ACTION.LEFT);
+  player1KeyMapping.keyMapping.set("ArrowLeft" , Const.ACTION.LEFT);
   player1KeyMapping.keyMapping.set("ArrowRight", Const.ACTION.RIGHT);
-  player1KeyMapping.keyMapping.set("ArrowUp", Const.ACTION.UP);
-  player1KeyMapping.keyMapping.set("ArrowDown", Const.ACTION.DOWN);
-  player1KeyMapping.keyMapping.set("0", Const.ACTION.FIRE);
+  player1KeyMapping.keyMapping.set("ArrowUp"   , Const.ACTION.UP);
+  player1KeyMapping.keyMapping.set("ArrowDown" , Const.ACTION.DOWN);
+  player1KeyMapping.keyMapping.set("0"         , Const.ACTION.FIRE);
   console.log('setup player mappings', player1KeyMapping);
 }
 
