@@ -8,6 +8,7 @@ module.exports = Object.freeze({
   TYPE:
   {
     PLAYER: 'player',
+    BULLET: 'bullet',
   },
 
   DIR:

@@ -53,6 +53,17 @@ class Game {
       case Const.ACTION.DOWN:
         playerState.y += 5;
         break;
+      case Const.ACTION.FIRE: {
+        const item = {
+          x: playerState.x + Const.PLAYER_WIDTH / 2,
+          y: playerState.y + Const.PLAYER_HEIGHT / 2,
+          type: Const.TYPE.BULLET,
+          owner: playerState.name,
+          dir: playerState.dir
+        };
+        this.state.push(item);
+        break;
+      }
     }
     playerState.x = clampX(playerState.x);
     playerState.y = clampY(playerState.y);

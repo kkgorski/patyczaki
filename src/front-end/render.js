@@ -7,13 +7,26 @@ let items = [];
 
 export const updateItems = (gameState) => {
   items = gameState.map( (gameStateItem) => {
-    return {
-      x: gameStateItem.x,
-      y: gameStateItem.y,
-      img: (gameStateItem.dir === Const.DIR.LEFT) ? getAsset('patyczakLeft.png') : getAsset('patyczakRight.png'),
-      type: gameStateItem.type,
-      name: gameStateItem.name
-    };
+    if(gameStateItem.type === Const.TYPE.PLAYER) {
+      const y = {
+        x: gameStateItem.x,
+        y: gameStateItem.y,
+        img: (gameStateItem.dir === Const.DIR.LEFT) ? getAsset('patyczakLeft.png') : getAsset('patyczakRight.png'),
+        type: gameStateItem.type,
+        name: gameStateItem.name
+      };
+      return y;
+    }
+    else if (gameStateItem.type === Const.TYPE.BULLET) {
+      const x = {
+        x: gameStateItem.x,
+        y: gameStateItem.y,
+        img: getAsset('bullet.png'),
+        type: gameStateItem.type,
+        owner: gameStateItem.name
+      };
+      return x;
+    }
   });
 }
 
