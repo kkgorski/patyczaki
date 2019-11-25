@@ -1,4 +1,5 @@
 import {emit} from './client.js';
+import {throttle} from 'throttle-debounce';
 const Const = require('../common/constants');
 
 const playerKeyMappings = [];
@@ -36,7 +37,9 @@ export const setupDefaultKeyMappingForPlayer2 = () => {
 const mapEventToPlayerDirectionAndSendToServer = (event) => {
   for (const playerKeyMapping of playerKeyMappings){
     if(playerKeyMapping.keyMapping.has(event.key)) {
-      emit(Const.MSG.CTS_PLAYER_KEYDOWN, {name: playerKeyMapping.name, action: playerKeyMapping.keyMapping.get(event.key)});
+      throttle(20, () => {
+        emit(Const.MSG.CTS_PLAYER_KEYDOWN, {name: playerKeyMapping.name, action: playerKeyMapping.keyMapping.get(event.key)});
+      })();
     }
   }
 }

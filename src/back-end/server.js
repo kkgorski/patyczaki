@@ -26,16 +26,15 @@ io.on('connection', socket => {
   socket.on(Const.MSG.CTS_GAME_SETUP, () => {
     console.log('CTS_GAME_SETUP received!');
     game = new Game(socket);
+    setInterval(game.emitGameState.bind(game), 1000/60);
     });
   socket.on(Const.MSG.CTS_PLAYERS_SETUP, (players) => {
     console.log('CTS_PLAYERS_SETUP received!', players);
     game.addPlayers(players)
-    game.emitGameState();
   });
   socket.on(Const.MSG.CTS_PLAYER_KEYDOWN, (playerKeydown) => {
     console.log('CTS_PLAYER_KEYDOWN received!', playerKeydown);
     game.updateAfterKeydown(playerKeydown);
-    game.emitGameState();
   });
 });
 

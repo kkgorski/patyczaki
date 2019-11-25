@@ -58,3 +58,13 @@ BACK:
 + On CTS_PLAYER_KEYDOWN FIRE bullet should start to be rendered.
 - Bullet should propagate with constant velocity in the same direction as player's last movement.
 
+=============================================================================================================
+25.11.2019 - Iteration 4 - CLEVER MESSAGES - CLIENT <-> SERVER DELAY
+
+FRONT:
++ Messages send OnKeydown are throttled
+- Implement DELAYED rendering based on queue of STC_GAME_STATE messages.
+
+BACK:
++ Server does not respond to CTS_PLAYER_KEYDOWN, but sends game updates periodically
+
